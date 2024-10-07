@@ -1,38 +1,65 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #4CAF50;  /* Green */
+  color: white;
+  padding: 10px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar {
+  background-color: #f4f4f4;  /* Light gray */
+  padding: 15px;
+  width: 200px;
+  float: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar ul li a:hover {
+  color: #4CAF50;  /* Green */
+}
+.disease-prediction {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.disease-prediction h2 {
+  color: #4CAF50;  /* Green */
+}
+
+.disease-prediction input {
+  margin: 10px 0;
+}
+
+.disease-prediction button {
+  background-color: #4CAF50;  /* Green */
   color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.disease-prediction button:hover {
+  background-color: #45a049;  /* Darker green */
 }

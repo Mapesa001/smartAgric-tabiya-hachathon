@@ -1,0 +1,11 @@
+/* src/components/Header.css */
+.header {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 15px; /* Padding for the header */
+    width: 100%; /* Full width */
+    position: relative; /* Relative positioning */
+    top: 0; /* Align to top */
+    z-index: 10; /* Ensure it stays above other elements */
+}

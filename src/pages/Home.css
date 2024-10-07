@@ -1,0 +1,74 @@
+/* src/pages/Home.css */
+
+.home-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .welcome-title {
+    font-size: 2.5rem;
+    color: #2e7d32; /* Dark Green */
+  }
+  
+  .intro-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  
+  .feature-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 22%; /* Adjust width for four cards */
+    margin: 10px;
+    transition: transform 0.2s;
+    position: relative; /* Added for positioning of icon */
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .feature-icon {
+    font-size: 40px; /* Size of the icon */
+    color: #2e7d32; /* Color of the icon */
+    position: absolute; /* Positioning the icon */
+    top: 10px;
+    right: 20px;
+  }
+  
+  .feature-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No borders */
+    padding: 10px 20px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline-block */
+    margin: 10px 0; /* Some margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition effect */
+  }
+  
+  .feature-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .footer-note {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #888;
+  }
+  
