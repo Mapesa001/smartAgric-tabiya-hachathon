@@ -1,0 +1,91 @@
+/* Wrapper for the About page content */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Header styles */
+  .about-container h1 {
+    color: #2e7d32;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-container h2 {
+    color: #388e3c;
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #81c784;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Text and paragraph styles */
+  .about-container p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  /* List styles */
+  .about-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .about-container ul li {
+    background: #e8f5e9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-container ul li:hover {
+    background-color: #c8e6c9;
+  }
+  
+  /* Links and interactive elements */
+  .about-container a {
+    color: #00695c;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .about-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Section Spacing */
+  .about-section {
+    margin-bottom: 40px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 20px;
+    }
+  
+    .about-container h1 {
+      font-size: 2rem;
+    }
+  
+    .about-container h2 {
+      font-size: 1.6rem;
+    }
+  
+    .about-container p {
+      font-size: 1rem;
+    }
+  }
+  

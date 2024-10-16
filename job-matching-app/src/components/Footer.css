@@ -1,0 +1,17 @@
+/* src/components/Footer.css */
+.footer {
+    background-color: #333; /* Dark background */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    padding: 10px 0; /* Padding around the footer */
+    position: relative; /* Default positioning */
+    bottom: 0; /* Align at the bottom */
+    width: 100%; /* Full width */
+    margin-top: auto; /* Ensure it stays at the bottom of the page */
+  }
+  
+  .footer p {
+    margin: 0; /* Remove default margins */
+    font-size: 14px; /* Font size */
+  }
+  
