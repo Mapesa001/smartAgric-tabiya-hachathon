@@ -14,7 +14,8 @@ const Home = () => {
           <p>
             Unlock a world of opportunities. Our platform connects you with job roles that match your skills, experience, and passion.
           </p>
-          <Link to="/job-details" className="explore-button">
+          {/* Update the Link path to point to the job search page */}
+          <Link to="/job-search" className="explore-button">  
             Explore Jobs
           </Link>
         </div>

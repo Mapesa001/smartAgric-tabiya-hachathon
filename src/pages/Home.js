@@ -1,15 +1,27 @@
-// src/pages/Home.js
 import React from 'react';
 import './Home.css'; // Optional CSS for styling
-import { FaSeedling, FaLeaf, FaTools, FaInfoCircle } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaSeedling, FaLeaf, FaTools, FaInfoCircle, FaBriefcase } from 'react-icons/fa'; // Importing icons from react-icons
 
 const Home = () => {
   return (
     <div className="home-container">
+      {/* Hero Section */}
+      <div className="hero-section">
+        <h1 className="hero-title">Empowering Youths for a Brighter Future</h1>
+        <p className="hero-subtitle">
+          Your one-stop solution for smart farming, crop management, and now job opportunities!
+        </p>
+        <a href="http://localhost:3001/job-matching">
+          <button className="hero-button">Find Agricultural Jobs</button>
+        </a>
+      </div>
+
       <h1 className="welcome-title">Welcome to the Smart Agriculture System</h1>
       <p className="intro-text">
         This system is designed to assist farmers with the following features:
       </p>
+      
+      {/* Existing Feature Cards */}
       <div className="features-container">
         <div className="feature-card">
           <FaSeedling className="feature-icon" />
@@ -36,6 +48,7 @@ const Home = () => {
           <button className="feature-button">Explore</button>
         </div>
       </div>
+      
       <div className="footer-note">
         <p>Explore our features by clicking the buttons above!</p>
       </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import AgriculturalJobSearch from './pages/AgriculturalJobSearch';
+import AgriculturalJobSearch from './pages/AgriculturalJobSearch'; // This is the job search page
 import MarketInsights from './pages/MarketInsights';
 import JobDetails from './pages/JobDetails';
 import About from './pages/About';
@@ -19,8 +19,10 @@ function App() {
           {/* Home page route */}
           <Route path="/" element={<Home />} /> 
           
+          {/* Updated Job Search route */}
+          <Route path="/job-search" element={<AgriculturalJobSearch />} /> {/* Updated this path */}
+          
           {/* Other routes */}
-          <Route path="/agricultural-job-search" element={<AgriculturalJobSearch />} />
           <Route path="/market-insights" element={<MarketInsights />} />
           <Route path="/job-details/:id" element={<JobDetails />} />
           <Route path="/about" element={<About />} />
