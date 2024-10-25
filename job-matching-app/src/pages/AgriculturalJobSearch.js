@@ -1,95 +1,145 @@
-// src/pages/AgriculturalJobSearch.js
-import React, { useState } from 'react';
-import './AgriculturalJobSearch.css'; // Ensure you have a CSS file for styling
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './AgriculturalJobSearch.css';
 
-const AgriculturalJobSearch = () => {
-  // Hardcoded job listings for demonstration
-  const jobs = [
+function JobSearch() {
+  const [jobs, setJobs] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchType, setSearchType] = useState('occupation');
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/jobs');
+        setJobs(response.data);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
+
+    const fetchSkills = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/skills');
+        if (Array.isArray(response.data)) {
+          setSkills(response.data);
+        } else {
+          console.error('Skills data is not an array:', response.data);
+          setSkills([]);
+        }
+      } catch (error) {
+        console.error('Error fetching skills:', error);
+      }
+    };
+
+    fetchJobs();
+    fetchSkills();
+  }, []);
+
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    setLoading(true);
+    setTimeout(() => {
+      if (searchType === 'occupation') {
+        const results = jobs.filter(job =>
+          job.PREFERREDLABEL.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredResults(results);
+      } else {
+        const results = skills.filter(skill =>
+          skill.PREFERREDLABEL.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredResults(results);
+      }
+      setLoading(false);
+    }, 300);
+  };
+
+  const handleSearchType = (event) => {
+    setSearchType(event.target.value);
+    setSearchTerm('');
+    setFilteredResults([]);
+  };
+
+  // Sample jobs data
+  const sampleJobs = [
     {
-      id: 1,
-      title: 'Farm Manager',
-      company: 'Green Farms Ltd.',
-      location: 'Nakuru, Kenya',
-      description: 'Manage daily operations on the farm, including planting, harvesting, and employee management.',
-      skills: ['management', 'leadership', 'agriculture'],
+      level: "Entry-Level Agricultural Technician",
+      description: "Responsible for assisting in the development of agricultural production processes. Requires a basic understanding of farming techniques and machinery.",
     },
     {
-      id: 2,
-      title: 'Agricultural Engineer',
-      company: 'AgriTech Solutions',
-      location: 'Nairobi, Kenya',
-      description: 'Design and develop agricultural machinery and equipment.',
-      skills: ['engineering', 'design', 'innovation'],
+      level: "Mid-Level Agronomist",
+      description: "Works with farmers to improve crop yields through soil management and crop rotation. Requires a degree in agronomy or a related field.",
     },
     {
-      id: 3,
-      title: 'Crop Scientist',
-      company: 'Food Security Agency',
-      location: 'Eldoret, Kenya',
-      description: 'Conduct research on crop production and sustainable farming practices.',
-      skills: ['research', 'agriculture', 'biology'],
-    },
-    {
-      id: 4,
-      title: 'Agronomy Consultant',
-      company: 'Harvest Consultants',
-      location: 'Mombasa, Kenya',
-      description: 'Provide expert advice to farmers on crop management and soil health.',
-      skills: ['consulting', 'agriculture', 'communication'],
+      level: "Senior Agricultural Manager",
+      description: "Oversees agricultural operations and manages staff. Responsible for strategic planning and decision-making to enhance productivity and profitability.",
     },
   ];
 
-  const [userSkills, setUserSkills] = useState('');
-  const [filteredJobs, setFilteredJobs] = useState(jobs);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    
-    // Split the input into an array of skills
-    const skillsArray = userSkills.split(',').map(skill => skill.trim().toLowerCase());
-    
-    // Filter jobs based on user skills
-    const matchedJobs = jobs.filter(job => 
-      skillsArray.some(skill => job.skills.includes(skill))
-    );
-
-    setFilteredJobs(matchedJobs);
-  };
-
   return (
     <div className="job-search-container">
-      <h1>Agricultural Job Search</h1>
-      <p>Find job opportunities in the agricultural sector.</p>
+      <h1>Job Search</h1>
+      <p>
+        Discover various career opportunities in agriculture! Whether you are looking for roles in farming, research, or agribusiness, our platform connects you with potential employers and resources.
+        Use the search feature below to find jobs by occupation or skill.
+      </p>
 
-      <form onSubmit={handleSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Enter your skills (comma-separated)"
-          value={userSkills}
-          onChange={(e) => setUserSkills(e.target.value)}
-          className="skill-input"
-          required
-        />
-        <button type="submit" className="search-button">Search</button>
-      </form>
+      {/* Search type toggle */}
+      <div className="search-type-toggle">
+        <label>
+          <input type="radio" value="occupation" checked={searchType === 'occupation'} onChange={handleSearchType} />
+          Occupation
+        </label>
+        <label>
+          <input type="radio" value="skill" checked={searchType === 'skill'} onChange={handleSearchType} />
+          Skill
+        </label>
+      </div>
 
-      <div className="job-listings">
-        {filteredJobs.length > 0 ? (
-          filteredJobs.map((job) => (
-            <div className="job-card" key={job.id}>
-              <h2 className="job-title">{job.title}</h2>
-              <p className="job-company">{job.company}</p>
-              <p className="job-location">{job.location}</p>
-              <p className="job-description">{job.description}</p>
-              <a href={`/job-details/${job.id}`} className="view-details">View Details</a>
-            </div>
+      {/* Search input */}
+      <input
+        type="text"
+        placeholder={`Search ${searchType}...`}
+        value={searchTerm}
+        onChange={handleSearch}
+        className="search-input"
+      />
+
+      {/* Loading indicator */}
+      {loading && <p>Loading results...</p>}
+
+      {/* Results */}
+      <ul className="results-list">
+        {filteredResults.length > 0 ? (
+          filteredResults.map((item, index) => (
+            <li key={index} className="result-item">
+              <h2>{item.PREFERREDLABEL}</h2>
+              <p>{item.DESCRIPTION}</p>
+            </li>
           ))
         ) : (
-          <p>No jobs found matching your skills.</p>
+          <li className="result-item">No results found for "{searchTerm}"</li>
         )}
+      </ul>
+
+      {/* Sample Agricultural Jobs Section */}
+      <div className="job-showcase">
+        <h2>Sample Agricultural Jobs</h2>
+        <div className="job-cards">
+          {sampleJobs.map((job, index) => (
+            <div key={index} className="job-card">
+              <h3>{job.level}</h3>
+              <p>{job.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default AgriculturalJobSearch;
+export default JobSearch;

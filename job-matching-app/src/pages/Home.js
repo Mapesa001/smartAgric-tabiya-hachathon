@@ -1,9 +1,21 @@
 // src/pages/Home.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { AuthContext } from '../context/AuthContext'; // Import your AuthContext or state management
 import './Home.css'; // Import CSS file for styling
 
 const Home = () => {
+  const { isAuthenticated } = useContext(AuthContext); // Get authentication status from context
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleExploreClick = () => {
+    if (isAuthenticated) {
+      navigate('/job-search'); // Navigate to job search page if authenticated
+    } else {
+      navigate('/sign-in'); // Redirect to sign-in page if not authenticated
+    }
+  };
+
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -14,10 +26,10 @@ const Home = () => {
           <p>
             Unlock a world of opportunities. Our platform connects you with job roles that match your skills, experience, and passion.
           </p>
-          {/* Update the Link path to point to the job search page */}
-          <Link to="/job-search" className="explore-button">  
+          {/* Update the button to use handleExploreClick */}
+          <button onClick={handleExploreClick} className="explore-button">  
             Explore Jobs
-          </Link>
+          </button>
         </div>
       </section>
 

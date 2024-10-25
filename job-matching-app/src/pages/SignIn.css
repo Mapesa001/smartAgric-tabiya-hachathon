@@ -1,0 +1,67 @@
+/* SignIn.css */
+.signin-container {
+    margin: 0;
+    padding: 0;
+    height: 100vh;  /* Full viewport height */
+    display: flex;  /* Use Flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    background-color: #f0f0f0; /* Plain light gray background */
+  }
+  
+  .signin-container > div {
+    width: 100%;  /* Full width */
+    max-width: 400px;  /* Max width for the form */
+    margin: 0 auto;  /* Center on the page */
+    padding: 20px;  /* Padding around the form */
+    background-color: #fff;  /* White background for the form */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Add shadow for depth */
+    border-radius: 10px;  /* Rounded corners */
+    text-align: center;  /* Center text */
+  }
+  
+  h2 {
+    color: #333;  /* Dark color for heading */
+    margin-bottom: 20px;  /* Margin below heading */
+  }
+  
+  form {
+    display: flex;  /* Use Flexbox for the form */
+    flex-direction: column;  /* Stack elements vertically */
+  }
+  
+  input {
+    margin-bottom: 15px;  /* Space between inputs */
+    padding: 10px;  /* Padding for inputs */
+    font-size: 16px;  /* Font size for inputs */
+    border: 1px solid #ddd;  /* Border style for inputs */
+    border-radius: 5px;  /* Rounded corners for inputs */
+  }
+  
+  button {
+    padding: 10px;  /* Button padding */
+    background-color: #28a745;  /* Default button color */
+    color: white;  /* Button text color */
+    border: none;  /* Remove default border */
+    border-radius: 5px;  /* Rounded corners for buttons */
+  }
+  
+  button:hover {
+    background-color: #218838;  /* Change button color on hover */
+  }
+  
+  p {
+    color: red;  /* Error message color */
+    text-align: center;  /* Center text */
+  }
+  
+  button.switch {
+    background-color: #007bff;  /* Switch button color */
+    margin-top: 20px;  /* Space above switch button */
+    cursor: pointer;  /* Cursor pointer on hover */
+  }
+  
+  button.switch:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+  }
+  

@@ -1,105 +1,125 @@
-/* src/pages/AgriculturalJobSearch.css */
+/* Overall container styling */
 .job-search-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f9fc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .job-search-container h1 {
-    font-size: 2.5em;
-    color: #2c3e50;
-    text-align: center;
-  }
-  
-  .job-search-container p {
-    font-size: 1.2em;
-    color: #34495e;
-    text-align: center;
-  }
-  
-  .search-form {
-    display: flex;
-    flex-direction: column; /* Change to column layout */
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .skill-input,
-  .location-input {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-    margin: 10px 0; /* Add margin for spacing */
-    width: 100%; /* Full width for better responsiveness */
-    max-width: 400px; /* Limit max width */
-  }
-  
-  .search-button {
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .search-button:hover {
-    background-color: #2980b9;
-  }
-  
-  .job-listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .job-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .job-title {
-    font-size: 1.5em;
-    color: #e74c3c;
-  }
-  
-  .job-company,
-  .job-location {
-    font-size: 1.1em;
-    color: #7f8c8d;
-  }
-  
-  .job-description {
-    font-size: 0.9em;
-    color: #34495e;
-    margin: 10px 0;
-  }
-  
-  .view-details {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .view-details:hover {
-    background-color: #2980b9;
-  }
-  
+  background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Gradient background */
+  color: #3e2723; /* Darker color for text */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 900px; /* Wider content area */
+  margin: 2rem auto; /* Center with margin */
+  font-family: 'Arial', sans-serif; /* Modern font */
+}
+
+/* Title styling */
+.job-search-container h1 {
+  color: #0d47a1; /* Deep blue */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem; /* Larger font size */
+}
+
+/* Description styling */
+.job-search-container p {
+  font-size: 1.2rem; /* Slightly larger font size */
+  line-height: 1.6; /* Improved line height for readability */
+  text-align: center; /* Centered description */
+}
+
+/* Search input styling */
+.search-input {
+  padding: 15px;
+  border: 2px solid #0d47a1; /* Dark blue border */
+  border-radius: 5px;
+  width: 100%; /* Full width input */
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Change border color on focus */
+.search-input:focus {
+  border-color: #ff5722; /* Orange border on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(255, 87, 34, 0.5); /* Subtle glow effect */
+}
+
+/* Search type toggle styling */
+.search-type-toggle {
+  display: flex;
+  justify-content: center; /* Center toggle */
+  margin-bottom: 1.5rem;
+}
+
+/* Label styling for search type */
+.search-type-toggle label {
+  margin: 0 1rem; /* Space between radio buttons */
+  font-weight: bold; /* Bold font */
+  color: #0d47a1; /* Dark blue */
+}
+
+/* Results list styling */
+.results-list {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+/* Individual result item styling */
+.result-item {
+  background-color: #ffffff; /* White background for results */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 0.5rem 0; /* Space between results */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transform and shadow */
+}
+
+/* Hover effect for result items */
+.result-item:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Job showcase section styling */
+.job-showcase {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #ffe0b2; /* Light peach background */
+  border-radius: 10px;
+}
+
+/* Job images section */
+.job-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between job cards */
+}
+
+/* Job card styling */
+.job-card {
+  flex: 1 1 30%; /* Responsive card size */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff3e0; /* Light orange background for cards */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transform */
+}
+
+/* Hover effect for job cards */
+.job-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Showcase image styling */
+.showcase-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Loading indicator styling */
+.loading {
+  color: #ff5722; /* Orange color for loading */
+  text-align: center; /* Center loading text */
+  font-weight: bold; /* Bold font */
+  font-size: 1.2rem; /* Larger loading text */
+}
