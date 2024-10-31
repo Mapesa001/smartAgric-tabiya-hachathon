@@ -1,58 +1,83 @@
 import React from 'react';
-import './Home.css'; // Optional CSS for styling
-import { FaSeedling, FaLeaf, FaTools, FaInfoCircle, FaBriefcase } from 'react-icons/fa'; // Importing icons from react-icons
+import Header from '../components/Header'; // Updated path for Header component
+import './Home.css';
+import { FaSeedling, FaLeaf, FaTools, FaInfoCircle } from 'react-icons/fa';
+
+const features = [
+  {
+    icon: <FaSeedling />,
+    title: "Yield Prediction",
+    description: "Get accurate predictions on crop yield based on various parameters.",
+  },
+  {
+    icon: <FaLeaf />,
+    title: "Disease Prediction",
+    description: "Identify crop diseases from images and receive treatment suggestions.",
+  },
+  {
+    icon: <FaTools />,
+    title: "Crop Recommendation",
+    description: "Receive recommendations on the best crops to grow based on conditions.",
+  },
+  {
+    icon: <FaInfoCircle />,
+    title: "Interactive AI Farm Chatbot",
+    description: "Connect with our AI chatbot for personalized farming advice, including local language translation.",
+  },
+];
 
 const Home = () => {
-  return (
-    <div className="home-container">
-      {/* Hero Section */}
-      <div className="hero-section">
-        <h1 className="hero-title">Empowering Youths for a Brighter Future</h1>
-        <p className="hero-subtitle">
-          Your one-stop solution for smart farming, crop management, and now job opportunities!
-        </p>
-        <a href="http://localhost:3001/job-matching">
-          <button className="hero-button">Find Agricultural Jobs</button>
-        </a>
-      </div>
+  const backgroundImageStyle = {
+    backgroundImage: `url(${process.env.PUBLIC_URL + '/background.png'})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    minHeight: '30vh',
+    padding: '4px 4px',
+  };
 
-      <h1 className="welcome-title">Welcome to the Smart Agriculture System</h1>
-      <p className="intro-text">
-        This system is designed to assist farmers with the following features:
-      </p>
-      
-      {/* Existing Feature Cards */}
-      <div className="features-container">
-        <div className="feature-card">
-          <FaSeedling className="feature-icon" />
-          <h2>Yield Prediction</h2>
-          <p>Get accurate predictions on crop yield based on various parameters.</p>
-          <button className="feature-button">Explore</button>
-        </div>
-        <div className="feature-card">
-          <FaLeaf className="feature-icon" />
-          <h2>Disease Prediction</h2>
-          <p>Identify crop diseases from images and receive treatment suggestions.</p>
-          <button className="feature-button">Explore</button>
-        </div>
-        <div className="feature-card">
-          <FaTools className="feature-icon" />
-          <h2>Crop Recommendation</h2>
-          <p>Receive recommendations on the best crops to grow based on conditions.</p>
-          <button className="feature-button">Explore</button>
-        </div>
-        <div className="feature-card">
-          <FaInfoCircle className="feature-icon" />
-          <h2>Advice</h2>
-          <p>Get tailored advice on how to grow specified crops effectively.</p>
-          <button className="feature-button">Explore</button>
+  return (
+    <>
+      <Header /> {/* Fixed Header */}
+      <div style={{ marginTop: '40px' }}> {/* Increased space between header and page */}
+        <div
+          className="home-container"
+          style={{ ...backgroundImageStyle, marginTop: '20px', marginLeft: '30px' }} // Maintained margin-left for space from sidebar
+        >
+          <h1 className="welcome-title">Welcome to the Smart Agriculture System</h1>
+          <p className="intro-text">
+            Our mission is to empower farmers with advanced tools and resources to enhance agricultural practices and ensure sustainable farming methods.
+          </p>
+
+          <section className="what-we-offer" style={{ marginBottom: '20px' }}> {/* Space below what we offer section */}
+            <h2>What We Offer</h2>
+            <p>
+              We provide innovative solutions, including:
+              <ul>
+                <li>Accurate yield predictions</li>
+                <li>Crop disease identification</li>
+                <li>Personalized crop recommendations</li>
+                <li>An interactive AI chatbot to assist farmers</li>
+              </ul>
+            </p>
+          </section>
+
+          {/* Features Section */}
+          <div className="features-container">
+            {features.map((feature, index) => (
+              <div className="feature" key={index}>
+                <div className="feature-icon">{feature.icon}</div>
+                <h2>{feature.title}</h2>
+                <p>{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="footer-note">
+            <p>Explore our features by clicking the buttons above!</p>
+          </div>
         </div>
       </div>
-      
-      <div className="footer-note">
-        <p>Explore our features by clicking the buttons above!</p>
-      </div>
-    </div>
+    </>
   );
 };
 

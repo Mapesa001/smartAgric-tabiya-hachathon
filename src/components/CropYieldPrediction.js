@@ -69,14 +69,14 @@ const CropYield = () => {
     };
 
     return (
-        <div className="crop-yield-container">
-            <h1>Crop Yield Prediction</h1>
-            <p>Input your location and land size to get crop yield predictions and management tips.</p>
+        <div className="crop-yield-container" style={{ height: '100vh', overflow: 'auto', padding: '20px', width: '90%', maxWidth: '1200px', margin: '0 auto', marginTop: '60px' }}>
+            <h1 style={{ marginTop: '40px', textAlign: 'center' }}>Crop Yield Prediction</h1>
+            <p style={{ textAlign: 'center' }}>Input your location and land size to get crop yield predictions and management tips.</p>
 
             {/* Location and land size form */}
-            <div className="yield-form">
+            <div className="yield-form" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <label htmlFor="locationSelect">Select Location:</label>
-                <select id="locationSelect" value={location} onChange={handleLocationChange}>
+                <select id="locationSelect" value={location} onChange={handleLocationChange} style={{ marginBottom: '20px', padding: '10px', width: '100%', maxWidth: '400px' }}>
                     <option value="">-- Select Location --</option>
                     <option value="Mombasa">Mombasa</option>
                     <option value="Nakuru">Nakuru</option>
@@ -84,9 +84,9 @@ const CropYield = () => {
                 </select>
 
                 {climateData && (
-                    <div className="climate-info">
+                    <div className="climate-info" style={{ textAlign: 'center', marginBottom: '20px' }}>
                         <h3>Climate Data for {location}</h3>
-                        <ul>
+                        <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li><strong>Rainfall:</strong> {climateData.rainfall}</li>
                             <li><strong>Soil pH:</strong> {climateData.soilPH}</li>
                             <li><strong>Temperature:</strong> {climateData.temperature}</li>
@@ -101,16 +101,17 @@ const CropYield = () => {
                     value={landSize}
                     onChange={(e) => setLandSize(e.target.value)}
                     placeholder="e.g., 2"
+                    style={{ marginBottom: '20px', padding: '10px', width: '100%', maxWidth: '400px' }}
                 />
 
-                <button onClick={handleCalculateYield}>Calculate Yield</button>
+                <button onClick={handleCalculateYield} style={{ padding: '10px 20px', fontSize: '16px' }}>Calculate Yield</button>
             </div>
 
             {/* Display recommended crops */}
             {recommendedCrops && (
-                <div className="recommended-crops">
+                <div className="recommended-crops" style={{ textAlign: 'center', marginTop: '40px' }}>
                     <h2>Recommended Crops for {location}</h2>
-                    <ul>
+                    <ul style={{ listStyle: 'none', padding: 0 }}>
                         {recommendedCrops.map((crop, index) => (
                             <li key={index}>
                                 <strong>{crop.name}:</strong> {crop.tips}
@@ -122,9 +123,9 @@ const CropYield = () => {
 
             {/* Display yield results */}
             {yieldData && (
-                <div className="yield-result">
+                <div className="yield-result" style={{ textAlign: 'center', marginTop: '40px' }}>
                     <h2>Yield Predictions</h2>
-                    <ul>
+                    <ul style={{ listStyle: 'none', padding: 0 }}>
                         {yieldData.map((crop, index) => (
                             <li key={index}>
                                 <strong>{crop.name}:</strong> {crop.totalYield} tonnes for {landSize} acres.

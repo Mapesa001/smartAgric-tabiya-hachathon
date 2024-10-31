@@ -2,6 +2,10 @@
 import React from 'react';
 import './About.css'; // Assuming you will create a CSS file for styling
 
+// Import images
+import aliMalalaImage from '../assets/alimalala.jpg'; // Adjust the path if necessary
+import mapesaFadhiliImage from '../assets/fadhil.jpeg'; // Adjust the path if necessary
+
 const About = () => {
   return (
     <div className="about-container">
@@ -21,12 +25,24 @@ const About = () => {
 
       <section className="features-section">
         <h2>What We Offer</h2>
-        <ul>
-          <li>**Crop Recommendations**: Analyzing weather patterns and soil conditions to suggest the best crops for each region.</li>
-          <li>**Yield Prediction**: Utilizing machine learning for accurate predictions of crop yields based on various parameters.</li>
-          <li>**Market Insights**: Access real-time market data to make informed decisions about selling produce.</li>
-          <li>**Sustainability Practices**: Learning about sustainable practices to improve soil health and reduce environmental impact.</li>
-        </ul>
+        <div className="features-list">
+          <div className="feature-item">
+            <h3>Crop Disease Prediction</h3>
+            <p>Utilizing advanced algorithms to identify potential crop diseases early, helping farmers take preventive actions.</p>
+          </div>
+          <div className="feature-item">
+            <h3>Yield Prediction</h3>
+            <p>Utilizing machine learning for accurate predictions of crop yields based on various parameters.</p>
+          </div>
+          <div className="feature-item">
+            <h3>Interactive AI Farm Chatbot</h3>
+            <p>An AI-driven chatbot that assists farmers with queries in local languages, enhancing communication and support.</p>
+          </div>
+          <div className="feature-item">
+            <h3>Marketplace Connectivity</h3>
+            <p>Connecting farmers to a platform where they can sell their products directly to consumers.</p>
+          </div>
+        </div>
       </section>
 
       <section className="team-section">
@@ -34,12 +50,28 @@ const About = () => {
         <p>
           Our diverse team consists of agronomists, data scientists, and software engineers, all working together to bring the best agricultural solutions to farmers. We believe in collaboration and continuous improvement to meet the evolving needs of the agricultural sector.
         </p>
+        
+        <div className="team-members">
+          <div className="team-member">
+            <img src={aliMalalaImage} alt="Ali Malala" className="team-member-image" />
+            <h3>ALI MALALA</h3>
+            <p>Lead developer, backend developer</p>
+            <p>Ali uses data analytics and machine learning to drive insights that support farmers in making informed decisions. He has a background in agricultural technology.</p>
+          </div>
+          
+          <div className="team-member">
+            <img src={mapesaFadhiliImage} alt="Mapesa Fadhili" className="team-member-image" />
+            <h3>MAPESA FADHILI</h3>
+            <p>Frontend developer</p>
+            <p>Mapesa specializes in designing appealing, friendly, and interactive UI.</p>
+          </div>
+        </div>
       </section>
 
       <section className="get-in-touch-section">
         <h2>Get In Touch</h2>
         <p>
-          We would love to hear from you! Whether you have questions about our system or want to share your feedback, feel free to contact us at <a href="mailto:support@smartagriculture.com">support@smartagriculture.com</a>.
+          We would love to hear from you! Whether you have questions about our system or want to share your feedback, feel free to contact us at <a href="mailto:support@smartagriculture.com">malalaali100@gmail.com</a>.
         </p>
       </section>
     </div>

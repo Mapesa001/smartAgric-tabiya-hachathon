@@ -1,6 +1,7 @@
 // src/components/CropRecommendation.js
 import React, { useState } from 'react';
 import './CropRecommendation.css'; // Assuming you will create a CSS file for styling
+import cropsImage from '../assets/assets.jpeg'; // Adjust the path according to your file structure
 
 const CropRecommendation = () => {
   const [soilType, setSoilType] = useState('');
@@ -30,8 +31,13 @@ const CropRecommendation = () => {
 
   return (
     <div className="crop-recommendation-container">
-      <h1>Crop Recommendation</h1>
+      <h1 style={{ marginTop: '100px' }}>Crop Recommendation</h1>
       <p>Find the best crops to plant based on your soil type and the current season!</p>
+
+      {/* Image Section */}
+      <div className="image-section">
+        <img src={cropsImage} alt="Crops in a field" className="crops-image" />
+      </div>
       
       <div className="input-section">
         <label htmlFor="soilType">Select Soil Type:</label>

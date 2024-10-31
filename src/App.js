@@ -8,7 +8,8 @@ import About from './pages/About';
 import DiseasePrediction from './components/DiseasePrediction';
 import CropYieldPrediction from './components/CropYieldPrediction';
 import CropRecommendation from './components/CropRecommendation';
-import Advice from './components/Advice';
+import Advice from './components/Chatbot';
+import EMarket from './components/EMarket'; // Updated import
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
             <Route path="/disease-prediction" element={<DiseasePrediction />} />
             <Route path="/crop-yield-prediction" element={<CropYieldPrediction />} />
             <Route path="/crop-recommendation" element={<CropRecommendation />} />
-            <Route path="/advice" element={<Advice />} />
+            <Route path="/chatbot" element={<Advice />} />
+            <Route path="/e-market" element={<EMarket />} /> {/* Updated reference */}
           </Routes>
         </div>
       </div>

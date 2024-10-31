@@ -120,6 +120,7 @@ def predict():
 
 if __name__ == '__main__':
     try:
-        app.run(debug=True)
+        app.run(debug=True, port=5001)  # Change to 5001 or any other unused port
     except Exception as e:
         print(f"Error running the app: {e}")
+

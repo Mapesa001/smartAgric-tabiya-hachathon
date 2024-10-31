@@ -3,11 +3,11 @@
     width: 200px; /* Set a fixed width for the sidebar */
     background-color: #f4f4f4; /* Light grey background */
     padding: 15px; /* Padding for the sidebar */
-    height: calc(100vh - 60px); /* Full height minus the header */
+    height: calc(100vh - 80px); /* Full height minus the header */
     position: fixed; /* Fixed positioning */
-    top: 80px; /* Start below the header with added space */
+    top: 60px; /* Start below the header (adjust this value as needed) */
     left: 0; /* Align to the left */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Slight shadow for depth */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
 
 .sidebar ul {
